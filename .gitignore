@@ -1,0 +1,5 @@
+packer/*.auto.pkrvars.hcl
+packer/output-*/
+packer/*.qcow2
+*.log
+.DS_Store

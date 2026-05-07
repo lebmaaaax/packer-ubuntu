@@ -1,0 +1,25 @@
+name: packer-validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Packer
+        uses: hashicorp/setup-packer@main
+
+      - name: Format check
+        run: packer fmt -check -recursive packer
+
+      - name: Initialize
+        run: packer init packer
+
+      - name: Validate
+        run: packer validate -var-file=packer/example.auto.pkrvars.hcl packer
