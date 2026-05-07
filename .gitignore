@@ -1,4 +1,5 @@
 packer/*.auto.pkrvars.hcl
+!packer/example.auto.pkrvars.hcl
 packer/output-*/
 packer/*.qcow2
 *.log
