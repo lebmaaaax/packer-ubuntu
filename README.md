@@ -4,7 +4,7 @@
 
 Sample `Packer` project for building a reusable Ubuntu 22.04 golden image for `Yandex Compute Cloud`.
 
-The image is intentionally limited to a clean, reusable baseline:
+The image is intentionally limited to standart conf:
 
 - system updates;
 - base utilities;
@@ -14,13 +14,11 @@ The image is intentionally limited to a clean, reusable baseline:
 - `journald` baseline logging;
 - cleanup and image finalization steps.
 
-The project is designed as a portfolio-ready starter repository: small enough to understand quickly, but structured like a real infrastructure codebase.
-
 ## RU
 
 Пример проекта на `Packer` для сборки переиспользуемого golden image на базе Ubuntu 22.04 для `Yandex Compute Cloud`.
 
-Образ специально ограничен чистым и переиспользуемым baseline-набором:
+Образ специально ограничен стандартной настройкой:
 
 - системные обновления;
 - базовые утилиты;
@@ -29,8 +27,6 @@ The project is designed as a portfolio-ready starter repository: small enough to
 - базовый host firewall;
 - базовая настройка логирования через `journald`;
 - очистка системы перед финализацией образа.
-
-Проект оформлен как starter-репозиторий для портфолио: он достаточно маленький, чтобы быстро разобраться, и при этом структурирован как реальный инфраструктурный код.
 
 ## Project Layout / Структура проекта
 
@@ -141,15 +137,3 @@ packer build -var-file=packer/local.auto.pkrvars.hcl packer
 `Packer` creates a temporary VM in `Yandex Compute Cloud`, provisions it, shuts it down, and produces a reusable custom image in your target folder.
 
 `Packer` создает временную VM в `Yandex Compute Cloud`, применяет provisioning-скрипты, выключает ее и публикует переиспользуемый custom image в указанной папке.
-
-## Notes / Примечания
-
-- This repository uses shell provisioners for readability and portability.
-- The project is intentionally focused on the image-building layer, not role configuration or application deployment.
-- A natural next step is adding `Terraform` and `Ansible` examples that consume the produced image family.
-- Direct `packer` commands are used instead of a wrapper `Makefile` to keep the repository minimal.
-
-- В этом репозитории используются shell provisioner-скрипты для наглядности и переносимости.
-- Проект сознательно сфокусирован на слое сборки образа, а не на конфигурации роли или деплое приложения.
-- Естественный следующий шаг: добавить примеры `Terraform` и `Ansible`, которые используют полученный `image family`.
-- Вместо `Makefile` используются прямые команды `packer`, чтобы репозиторий оставался минималистичным.
